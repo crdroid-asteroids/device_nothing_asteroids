@@ -175,7 +175,7 @@ TARGET_KERNEL_EXT_MODULES := \
 
 # Partitions
 ifneq ($(PRODUCT_RO_FILE_SYSTEM), erofs)
--include vendor/lineage/config/BoardConfigReservedSize.mk
+-include vendor/voltage/config/BoardConfigReservedSize.mk
 endif
 
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_dlkm system_ext vendor vendor_dlkm
@@ -224,7 +224,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 # SELinux
 include hardware/nothing/config.mk
-include device/lineage/sepolicy/libperfmgr/sepolicy.mk
+include device/voltage/sepolicy/libperfmgr/sepolicy.mk
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
