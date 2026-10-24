@@ -75,6 +75,15 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('remote_register_buf')
         .clear_symbol_version('rpcmem_alloc')
         .clear_symbol_version('rpcmem_free'),
+    (
+        'vendor/lib64/libntofflinepostproc.so',
+        'vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so',
+    ): blob_fixup()
+        .replace_needed('vendor.qti.hardware.camera.postproc@1.0.so', 'vendor.qti.camera.postproc@1.0-nt.so'),
+    'vendor/etc/camera/decision.json': blob_fixup()
+        .regex_replace(r'"dual.bokeh.raw.slave.size.3x4x":\[3200,2400\]', '"dual.bokeh.raw.slave.size.3x4x":[4080,3072]'),
+    'vendor/etc/camera/decision_pro.json': blob_fixup()
+        .regex_replace(r'"dual.bokeh.raw.slave.size.3x4x":\[2400,1800\]', '"dual.bokeh.raw.slave.size.3x4x":[4096,3072]'),
     'vendor/lib64/libcne.so': blob_fixup()
         .add_needed('libbinder_shim.so'),
     'vendor/lib64/libmorpho_RapidEffect.so': blob_fixup()
