@@ -9,6 +9,10 @@ $(call inherit-product, vendor/nothing/asteroids/asteroids-vendor.mk)
 # Camera
 $(call inherit-product, vendor/nothing/camera/config/Asteroids.mk)
 
+# Glyph lights for Nothing Camera
+PRODUCT_PACKAGES += \
+    libglyph_lights_shim
+
 # Dolby
 $(call inherit-product, hardware/dolby/dolby.mk)
 

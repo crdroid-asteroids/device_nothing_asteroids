@@ -86,6 +86,8 @@ blob_fixups: blob_fixups_user_type = {
         .sig_replace('B7 83 5D F8 77 F1 FF B4 28 00 00 D0', 'B7 83 5D F8 B7 F6 FF B4'),
     'vendor/etc/media_codecs.xml': blob_fixup()
         .regex_replace('<Include href="media_codecs_c2_audio.xml" />', '<Include href="media_codecs_c2_audio.xml" />\n    <Include href="media_codecs_dolby_audio.xml" />'),
+    'vendor/bin/hw/vendor.qti.hardware.lights.service': blob_fixup()
+        .add_needed('libglyph_lights_shim.so'),
     'vendor/bin/hw/vendor.qti.camera.provider-service_64': blob_fixup()
         .add_needed('libntcam_session_shim.so'),
     'vendor/lib64/libcne.so': blob_fixup()
