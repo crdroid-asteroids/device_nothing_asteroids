@@ -80,10 +80,10 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so',
     ): blob_fixup()
         .replace_needed('vendor.qti.hardware.camera.postproc@1.0.so', 'vendor.qti.camera.postproc@1.0-nt.so'),
-    'vendor/etc/camera/decision.json': blob_fixup()
-        .regex_replace(r'"dual.bokeh.raw.slave.size.3x4x":\[3200,2400\]', '"dual.bokeh.raw.slave.size.3x4x":[4080,3072]'),
-    'vendor/etc/camera/decision_pro.json': blob_fixup()
-        .regex_replace(r'"dual.bokeh.raw.slave.size.3x4x":\[2400,1800\]', '"dual.bokeh.raw.slave.size.3x4x":[4096,3072]'),
+    # Portrait: when the physical camera's static meta has no dualCal yet (first shot of a session) the depth
+    # node skipped its persist file fallback and left the calibration empty, read the file in that case too
+    'vendor/lib64/camera/node/com.nothing.node.bokehhdr.so': blob_fixup()
+        .sig_replace('B7 83 5D F8 77 F1 FF B4 28 00 00 D0', 'B7 83 5D F8 B7 F6 FF B4'),
     'vendor/etc/media_codecs.xml': blob_fixup()
         .regex_replace('<Include href="media_codecs_c2_audio.xml" />', '<Include href="media_codecs_c2_audio.xml" />\n    <Include href="media_codecs_dolby_audio.xml" />'),
     'vendor/bin/hw/vendor.qti.camera.provider-service_64': blob_fixup()
