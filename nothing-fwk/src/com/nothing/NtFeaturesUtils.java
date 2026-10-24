@@ -13,6 +13,18 @@ import java.util.BitSet;
 
 public class NtFeaturesUtils {
 
+    // Read by name through reflection in Nothing Camera
+    public static final int NTF_QCOM = 59;
+    public static final int NTF_MTK = 60;
+    public static final int NTF_PONG = 62;
+    public static final int NTF_PACMAN = 63;
+    public static final int NTF_TETRIS = 64;
+    public static final int NTF_ASTEROIDS = 80;
+    public static final int NTF_ASTEROIDS_PLUS = 86;
+    public static final int NTF_JPN = 89;
+    public static final int NTF_DRAGONITE = 110;
+    public static final int NTF_BACKGROUND_RES_LIMIT = 115;
+
     private static final BitSet sFeatures;
 
     static {
