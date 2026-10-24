@@ -9,6 +9,9 @@ $(call inherit-product, vendor/nothing/asteroids/asteroids-vendor.mk)
 # Camera
 $(call inherit-product, vendor/nothing/camera/config/Asteroids.mk)
 
+# Dolby
+$(call inherit-product, hardware/dolby/dolby.mk)
+
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/vabc_features.mk)
 

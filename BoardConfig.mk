@@ -247,6 +247,9 @@ DEVICE_MANIFEST_VOLCANO_FILES += $(DEVICE_PATH)/vintf/manifest_volcano.xml
 # Camera
 include vendor/nothing/camera/asteroids/BoardConfigCamera.mk
 
+# Dolby
+include hardware/dolby/configs/vintf/config.mk
+
 # Wi-Fi
 BOARD_WLAN_DEVICE := qcwcn
 BOARD_HOSTAPD_DRIVER := NL80211
