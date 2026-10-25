@@ -84,6 +84,10 @@ blob_fixups: blob_fixups_user_type = {
     # node skipped its persist file fallback and left the calibration empty, read the file in that case too
     'vendor/lib64/camera/node/com.nothing.node.bokehhdr.so': blob_fixup()
         .sig_replace('B7 83 5D F8 77 F1 FF B4 28 00 00 D0', 'B7 83 5D F8 B7 F6 FF B4'),
+    # The large composition GPU boost only matches 120/144/180fps, but nothing reports the fps
+    # to the perf HAL here, so it never fired
+    'vendor/etc/perf/perfboostsconfig.xml': blob_fixup()
+        .regex_replace(r'(Id="0x00001097"[^\n]*Timeout="5000") Fps="120, 144, 180"', r'\1'),
     'vendor/etc/media_codecs.xml': blob_fixup()
         .regex_replace('<Include href="media_codecs_c2_audio.xml" />', '<Include href="media_codecs_c2_audio.xml" />\n    <Include href="media_codecs_dolby_audio.xml" />'),
     # Codec2 ComponentStore is 0x120 bytes in current libcodec2_hidl, the blobs allocate 0x108
