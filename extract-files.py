@@ -86,6 +86,12 @@ blob_fixups: blob_fixups_user_type = {
         .sig_replace('B7 83 5D F8 77 F1 FF B4 28 00 00 D0', 'B7 83 5D F8 B7 F6 FF B4'),
     'vendor/etc/media_codecs.xml': blob_fixup()
         .regex_replace('<Include href="media_codecs_c2_audio.xml" />', '<Include href="media_codecs_c2_audio.xml" />\n    <Include href="media_codecs_dolby_audio.xml" />'),
+    # Codec2 ComponentStore is 0x120 bytes in current libcodec2_hidl, the blobs allocate 0x108
+    (
+        'vendor/bin/hw/vendor.qti.media.c2@1.0-service',
+        'vendor/bin/hw/vendor.qti.media.c2audio@1.0-service',
+    ): blob_fixup()
+        .sig_replace('00 21 80 52', '00 28 80 52'),
     'vendor/bin/hw/vendor.qti.hardware.lights.service': blob_fixup()
         .add_needed('libglyph_lights_shim.so'),
     'vendor/bin/hw/vendor.qti.camera.provider-service_64': blob_fixup()
