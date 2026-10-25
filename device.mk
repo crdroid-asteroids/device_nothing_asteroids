@@ -13,6 +13,10 @@ $(call inherit-product, vendor/nothing/camera/config/Asteroids.mk)
 PRODUCT_PACKAGES += \
     libglyph_lights_shim
 
+# Audio HAL: fix audio_port_config layout between AOSP HIDL and the CAF HAL
+PRODUCT_PACKAGES += \
+    audio.primary.asteroids
+
 # Dolby
 $(call inherit-product, hardware/dolby/dolby.mk)
 

@@ -14,6 +14,7 @@ aaudio.mmap_policy=2
 af.fast_track_multiplier=1
 audio.deep_buffer.media=true
 audio.offload.video=true
+ro.hardware.audio.primary=asteroids
 persist.bluetooth.a2dp_offload.disabled=false
 ro.af.client_heap_size_kbyte=7168
 ro.audio.flinger_standbytime_ms=2000
