@@ -175,6 +175,8 @@ TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/bt-kernel
 
 # Partitions
+BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 3221225472
+BOARD_SYSTEM_EXTIMAGE_PARTITION_RESERVED_SIZE := 314572800
 ifneq ($(PRODUCT_RO_FILE_SYSTEM), erofs)
 -include vendor/lineage/config/BoardConfigReservedSize.mk
 endif
